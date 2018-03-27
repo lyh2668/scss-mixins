@@ -17,7 +17,6 @@
                       transparent $radius, $color 0) nth($conf, 1) nth($conf, 2);
     $radial-gradients: append($radial-gradients, $radial-gradient, comma);
   }
-  @debug keywords($radial-gradients);
 
   background-color: $color;
   background: $radial-gradients;
