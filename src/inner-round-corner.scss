@@ -1,5 +1,5 @@
 @mixin inner-round-corner ($color, $radius, $positions...) {
-  $map-direction: (
+  $map-position: (
     top-left: top left,
     top-right: top right,
     bottom-left: bottom left,
@@ -9,10 +9,10 @@
   $radial-gradients: ();
 
   @each $pos in $positions {
-    @if not map-has-key($map-direction, $pos) {
-      @error "$positions 必须为：#{map-keys($map-direction)}";
+    @if not map-has-key($map-position, $pos) {
+      @error "$positions 必须为：#{map-keys($map-position)}";
     }
-    $conf: map-get($map-direction, $pos);
+    $conf: map-get($map-position, $pos);
     $radial-gradient: radial-gradient(circle at nth($conf, 1) nth($conf, 2),
                       transparent $radius, $color 0) nth($conf, 1) nth($conf, 2);
     $radial-gradients: append($radial-gradients, $radial-gradient, comma);
